@@ -17,5 +17,10 @@ jobs:
         uses: actions/checkout@v3
       
       - name: create pull request to merge changes to main
-        uses: peter-evans/create-pull-request@v4
+        uses: devops-infra/action-pull-request@v0.5.3
+        with:
+          source_branch: test
+          target_branch: main
+          title: pull request from workflow
+
         
