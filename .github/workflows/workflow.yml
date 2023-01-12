@@ -3,8 +3,15 @@ on:
   - push
   - workflow_dispatch
 jobs:
+  
   greeting:
     runs-on: ubuntu-latest
     steps:
       - name: acknowledge
         run: echo "push has been completed"
+
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create pull request to merge changes to main
+        uses: peter-evans/create-pull-request@v4
