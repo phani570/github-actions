@@ -16,4 +16,4 @@ jobs:
       - name: create pull request to merge changes to main
         uses: peter-evans/create-pull-request@v4
         with:
-          - branch: main
+          branch: main
