@@ -19,6 +19,7 @@ jobs:
       - name: create pull request to merge changes to main
         uses: devops-infra/action-pull-request@v0.5.3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           source_branch: test
           target_branch: main
           title: pull request from workflow
