@@ -24,7 +24,7 @@ jobs:
           get_diff: true
           title: pull request from workflow
       
-  artifacts:
+  upload-artifact:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -34,5 +34,15 @@ jobs:
         with:
           path: index.html
           name: index 
+
+  download-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: index
+      - name: List files
+        run: ls -l
 
         
