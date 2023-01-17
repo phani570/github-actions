@@ -23,5 +23,14 @@ jobs:
           target_branch: main
           get_diff: true
           title: pull request from workflow
+      
+  artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: uploading artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: index.html
+          name: index 
 
         
