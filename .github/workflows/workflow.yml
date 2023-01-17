@@ -36,6 +36,7 @@ jobs:
           name: index 
 
   download-artifact:
+    needs: upload-artifact
     runs-on: ubuntu-latest
     steps:
       - name: download artifact
