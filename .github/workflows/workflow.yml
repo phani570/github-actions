@@ -3,8 +3,49 @@ on:
   - push
   - workflow_dispatch
 jobs:
+  
   greeting:
     runs-on: ubuntu-latest
     steps:
       - name: acknowledge
         run: echo "push has been completed"
+
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      
+      - name: Create pull request
+        uses: thomaseizinger/create-pull-request@master
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          head: ${{ github.ref }}
+          base: main
+          title: "An automatically created PR!"
+
+
+      
+  upload-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: uploading artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: index.html
+          name: index 
+
+  download-artifact:
+    needs: upload-artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: index
+      - name: List files
+        run: ls -l
+
+        
