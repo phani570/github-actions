@@ -20,6 +20,8 @@ jobs:
         uses: peter-evans/create-pull-request@v4.2.3
         with:
           branch: main
+          author: phani570 <phanendrasai570@gmail.com>
+          committer: phani570 <phanendrasai570@gmail.com>
 
 
       
